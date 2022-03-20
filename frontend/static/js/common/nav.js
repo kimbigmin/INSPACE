@@ -259,18 +259,15 @@ export default class {
         name: $name.value,
       };
       //서버 fetch
-      fetch(
-        "http://elice-kdt-sw-1st-vm08.koreacentral.cloudapp.azure.com:5000/info-change-name",
-        {
-          method: "POST",
-          body: JSON.stringify(userInfo),
-          cache: "no-cache",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: token,
-          },
-        }
-      )
+      fetch("http://localhost:5000/info-change-name", {
+        method: "POST",
+        body: JSON.stringify(userInfo),
+        cache: "no-cache",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: token,
+        },
+      })
         .then((res) => {
           if (res.ok) {
             localStorage.setItem("name", $name.value);
@@ -293,18 +290,15 @@ export default class {
         confirmpassword: $confirmpassword.value,
       };
 
-      fetch(
-        "http://elice-kdt-sw-1st-vm08.koreacentral.cloudapp.azure.com:5000/info-change-password",
-        {
-          method: "POST",
-          body: JSON.stringify(pwdInfo),
-          cache: "no-cache",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: token,
-          },
-        }
-      )
+      fetch("http://localhost:5000/info-change-password", {
+        method: "POST",
+        body: JSON.stringify(pwdInfo),
+        cache: "no-cache",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: token,
+        },
+      })
         .then((res) => {
           if (res.ok) {
             alert("정상적으로 변경되었습니다.");
@@ -322,23 +316,17 @@ export default class {
     });
 
     $logoutBtn.addEventListener("click", () => {
-      const checkOut = fetch(
-        `http://elice-kdt-sw-1st-vm08.koreacentral.cloudapp.azure.com:5000/users/checkOut`,
-        {
-          headers: {
-            Authorization: token,
-          },
-        }
-      );
+      const checkOut = fetch(`http://localhost:5000/users/checkOut`, {
+        headers: {
+          Authorization: token,
+        },
+      });
 
-      const logOut = fetch(
-        `http://elice-kdt-sw-1st-vm08.koreacentral.cloudapp.azure.com:5000/logout`,
-        {
-          headers: {
-            Authorization: token,
-          },
-        }
-      );
+      const logOut = fetch(`http://localhost:5000/logout`, {
+        headers: {
+          Authorization: token,
+        },
+      });
 
       Promise.all([checkOut, logOut])
         .then((res) => {
@@ -378,14 +366,11 @@ export default class {
     };
 
     $historyBtn.addEventListener("click", () => {
-      fetch(
-        `http://elice-kdt-sw-1st-vm08.koreacentral.cloudapp.azure.com:5000/users/addInfo`,
-        {
-          headers: {
-            Authorization: token,
-          },
-        }
-      )
+      fetch(`http://localhost:5000/users/addInfo`, {
+        headers: {
+          Authorization: token,
+        },
+      })
         .then((res) => res.json())
         .then((data) => {
           let trList = "";

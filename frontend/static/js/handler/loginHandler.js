@@ -18,10 +18,8 @@ function loginHandler() {
       password: PASSWORD, // 유저스키마에 패스워드 저장할 때 해시값 사용하면 해시값으로 변경후 password 전송
     };
 
-    const loginURL =
-      "http://elice-kdt-sw-1st-vm08.koreacentral.cloudapp.azure.com:5000/login ";
-    // `http://localhost:8080/login`;
-    //서버 fetch
+    const loginURL = "http://localhost:5000/login ";
+
     fetch(loginURL, {
       method: "POST",
       body: JSON.stringify(loginUser),

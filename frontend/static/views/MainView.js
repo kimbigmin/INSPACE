@@ -185,14 +185,11 @@ export default class extends AbstractView {
     if (checkIn == "true") {
       checkInDisplay(true);
 
-      fetch(
-        `http://elice-kdt-sw-1st-vm08.koreacentral.cloudapp.azure.com:5000/users/checkIn`,
-        {
-          headers: {
-            Authorization: token,
-          },
-        }
-      )
+      fetch(`http://localhost:5000/users/checkIn`, {
+        headers: {
+          Authorization: token,
+        },
+      })
         .then((res) => {
           if (res.ok) {
             return res.json();
@@ -232,14 +229,11 @@ export default class extends AbstractView {
     } else {
       checkInDisplay(false);
 
-      fetch(
-        `http://elice-kdt-sw-1st-vm08.koreacentral.cloudapp.azure.com:5000/users/checkOut`,
-        {
-          headers: {
-            Authorization: token,
-          },
-        }
-      )
+      fetch(`http://localhost:5000/users/checkOut`, {
+        headers: {
+          Authorization: token,
+        },
+      })
         //fetch("http://localhost:3000/checkOut")
         .then((res) => {
           // if (!res.ok) {
@@ -352,7 +346,7 @@ export default class extends AbstractView {
 
     $btnCheckOut.addEventListener("click", () => {
       fetch(
-        `http://elice-kdt-sw-1st-vm08.koreacentral.cloudapp.azure.com:5000/users/checkOut`,
+        `http://localhost:5000/users/checkOut`,
         {
           headers: {
             Authorization: token,

@@ -26,7 +26,7 @@ const navigateTo = (url) => {
   router();
 };
 
-const router = async () => {
+const router = () => {
   const routes = [
     { path: "/", view: LoginView },
     { path: "/signup", view: SignupView },

@@ -9,11 +9,6 @@ const ticketHandler = ($tickets) => {
 
       const userAuth =
         e.target.className === "charge ticket" ? "charge" : "oneday";
-      // 클릭시 버튼 눌림 효과 CSS적용
-      // e.target.style = `color: black;
-      //   box-shadow: 0 0 0 2px #000 inset;
-      //   background-color: white;
-      //   transition: 0.5s`;
 
       const $selected = document.querySelector(".ticket__selected");
       if ($selected) {

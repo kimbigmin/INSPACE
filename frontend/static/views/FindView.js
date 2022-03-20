@@ -55,11 +55,6 @@ export default class extends AbstractView {
   }
 
   defaultFunc() {
-    // const script = document.createElement("script");
-    // script.src =
-    //   "https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js";
-    // document.getElementById("root").appendChild(script);
-
     const $passwordReqBtn = document.querySelector(".btn-signup");
 
     $passwordReqBtn.addEventListener("click", () => {
@@ -71,8 +66,7 @@ export default class extends AbstractView {
         userId: email,
       };
 
-      const URL =
-        "http://elice-kdt-sw-1st-vm08.koreacentral.cloudapp.azure.com:5000/reset-password";
+      const URL = "http://localhost:5000/reset-password";
       fetch(URL, {
         method: "POST",
         body: JSON.stringify(user),

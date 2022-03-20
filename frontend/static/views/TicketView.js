@@ -62,15 +62,11 @@ export default class extends AbstractView {
     const $onedayTickets = document.querySelectorAll(".oneday");
     const $chargeTickets = document.querySelectorAll(".charge");
 
-    fetch(
-      // `http://localhost:5000/reservation/${ID}/ticket`
-      `http://elice-kdt-sw-1st-vm08.koreacentral.cloudapp.azure.com:5000/reservation/ticket`,
-      {
-        headers: {
-          Authorization: localStorage.getItem("token"),
-        },
-      }
-    )
+    fetch(`http://localhost:5000/reservation/ticket`, {
+      headers: {
+        Authorization: localStorage.getItem("token"),
+      },
+    })
       .then((res) => res.json())
       .then((data) => {
         // 유저의 현재 사용하는 이용권이 충전권(charge)인 경우 충전권 버튼만 클릭 이벤트 활성화

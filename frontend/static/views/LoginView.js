@@ -1,10 +1,6 @@
 import AbstractView from "./AbstractView.js";
-//import loginHandler from "../js/handler/loginHandler.js";
-// import jwt from "../../../backend/passport/strategies/jwt.js";
 import parseJwt from "../js/handler/tokenHandler.js";
-// import jwt_decode from "jwt-decode";
 import toast from "../js/common/toast.js";
-
 export default class extends AbstractView {
   constructor(params) {
     super(params);
@@ -19,7 +15,6 @@ export default class extends AbstractView {
       <main class="sign-in">
         <aside class="left">
           <div class="logo_container">
-            <!-- <img class="logo" src="/static/assets/images/logo.png" /> -->
             <h1>inspace</h1>
           </div>
         </aside>
@@ -49,30 +44,10 @@ export default class extends AbstractView {
                 />
                 <label for="password">Password</label>
               </div>
-
-              <!-- <input
-                type="text"
-                name="ID"
-                id="ID"
-                placeholder="ID"
-                class="login-input"
-              />
-              <input
-                type="password"
-                name="password"
-                id="password"
-                placeholder="PASSWORD"
-                class="login-input"
-              /> -->
               <a
                 ><input type="button" id="login-Btn" value="로그인"
               /></a>
               <button id="google-login">
-                <!-- <img
-                  src="/static/assets/images/Google_2015_logo.svg.png"
-                  width="40"
-                /> -->
-                <!-- <img src="../../assets/images/google-logo.png" width="40" /> -->
                 Google 계정으로 로그인
               </button>
             </form>
@@ -101,10 +76,6 @@ export default class extends AbstractView {
       document.getElementById("login-Btn").click();
     } else {
       sessionStorage.clear();
-      // const script = document.createElement("script");
-      // script.src =
-      //   "https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js";
-      // document.getElementById("root").appendChild(script);
 
       setTimeout(() => {
         const signup = localStorage.getItem("signup");
@@ -139,8 +110,7 @@ export default class extends AbstractView {
               password: PASSWORD, // 유저스키마에 패스워드 저장할 때 해시값 사용하면 해시값으로 변경후 password 전송
             };
 
-            const loginURL =
-              "http://elice-kdt-sw-1st-vm08.koreacentral.cloudapp.azure.com:5000/login";
+            const loginURL = "http://localhost:5000/login";
             //서버 fetch
             fetch(loginURL, {
               method: "POST",
@@ -160,10 +130,8 @@ export default class extends AbstractView {
               })
               .then((data) => {
                 const token = data.token;
-                const tokenKey = "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";
                 const decoded = parseJwt(token);
-                // const decoded = jwt_decode(token);
-                //console.log(decoded);
+
                 localStorage.setItem("token", data.token);
                 localStorage.setItem("checkIn", decoded.checkIn);
                 localStorage.setItem("id", decoded.id);
@@ -177,10 +145,6 @@ export default class extends AbstractView {
               .catch((err) => {
                 console.log(err);
               });
-            // sessionStorage.setItem("history", "login");
-            // function movePage() {
-            //   $loginBtn.parentElement.href = "/main"
-            //}
           }
         }
       });

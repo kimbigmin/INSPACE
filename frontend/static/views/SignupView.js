@@ -16,7 +16,6 @@ export default class extends AbstractView {
       <main class="sign-in">
         <aside class="left">
           <div class="logo_container">
-            <!-- <img class="logo" src="../../assets/images/logo.png" /> -->
             <h1>inspace</h1>
           </div>
         </aside>
@@ -35,8 +34,6 @@ export default class extends AbstractView {
                 <label for="name">Name</label>
               </div>
 
-              <!-- <label for="name">Name</label>
-              <input type="text" id="name" placeholder="이름을 입력하세요." /> -->
               <div class="form-floating mb-3">
                 <input
                   type="email"
@@ -46,9 +43,6 @@ export default class extends AbstractView {
                 />
                 <label for="email">Email</label>
               </div>
-
-              <!-- <label for="email">Email</label>
-              <input type="email" id="email" placeholder="example@xx.com" /> -->
 
               <div class="form-floating mb-4">
                 <input
@@ -60,13 +54,6 @@ export default class extends AbstractView {
                 <label for="password">Password(알파벳, 숫자 포함 8자리 이상)</label>
               </div>
 
-              <!-- <label for="password">Password</label>
-              <input
-                type="password"
-                id="password"
-                placeholder="알바펫,숫자 포함 8자리 이상"
-              /> -->
-
               <div class="form-floating mb-4">
                 <input
                   type="password"
@@ -76,13 +63,6 @@ export default class extends AbstractView {
                 />
                 <label for="password">Password Confirm</label>
               </div>
-
-              <!-- <label for="confirm">Password Confirm</label>
-              <input
-                type="password"
-                id="passwordconfirm"
-                placeholder="비밀번호를 한 번 더 입력하세요"
-              /> -->
             </form>
             <div class="btn_container">
             <a href='/' data-link><button class="btn btn-cancel">Cancel</button></a>
@@ -96,11 +76,6 @@ export default class extends AbstractView {
   }
 
   defaultFunc() {
-    // const script = document.createElement("script");
-    // script.src =
-    //   "https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js";
-    // document.getElementById("root").appendChild(script);
-
     const $signUp = document.getElementById("signUp");
     const error = sessionStorage.getItem("error");
     const errorMessage = [
@@ -146,11 +121,7 @@ export default class extends AbstractView {
           password: password,
           checkPassword: passwordconfirm,
         };
-        // const dd = JSON.stringify(createdUser);
-        // console.log(dd);
-        const signupURL =
-          "http://elice-kdt-sw-1st-vm08.koreacentral.cloudapp.azure.com:5000/signup";
-        // `http://localhost:8080/signup;`;
+        const signupURL = "http://localhost:5000/signup";
         // 서버 전달
         fetch(signupURL, {
           method: "POST",

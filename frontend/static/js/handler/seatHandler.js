@@ -1,7 +1,6 @@
 import toast from "../common/toast.js";
 
-export const baseURL =
-  "http://elice-kdt-sw-1st-vm08.koreacentral.cloudapp.azure.com:5000";
+export const baseURL = "http://localhost:5000";
 
 export const Price = {
   oneday: {
