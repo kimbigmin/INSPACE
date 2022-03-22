@@ -1,7 +1,6 @@
 import AbstractView from "./AbstractView.js";
 import NavComponent from "../js/common/nav.js";
 // import { copy } from "../../../backend/app.js";
-
 export default class extends AbstractView {
   constructor(params) {
     super(params);

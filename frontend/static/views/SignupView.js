@@ -1,5 +1,4 @@
 import AbstractView from "./AbstractView.js";
-import userData from "../js/data.js";
 import toast from "../js/common/toast.js";
 
 export default class extends AbstractView {

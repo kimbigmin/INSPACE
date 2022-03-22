@@ -6,6 +6,7 @@ export default class extends AbstractView {
     super(params);
     this.setTitle("InSpace");
   }
+
   getHtml() {
     return `
     <style>
