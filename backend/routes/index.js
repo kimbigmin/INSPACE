@@ -23,11 +23,9 @@ router.post(
     const existId = await User.findOne({ userId });
     if (existId) {
       throw new Error("사용중인 아이디입니다.");
-      return;
     }
     if (password != checkPassword) {
       throw new Error("비밀번호가 일치하지 않습니다.");
-      return;
     }
     await User.create({
       name,

@@ -89,17 +89,6 @@ router.get(
             },
           }
         );
-
-        // if (user.remainingTime > -5000 || user.remainingTime < 5000) {
-        //   await User.updateOne(
-        //     { _id: id },
-        //     {
-        //       $inc: {
-        //         remainingTime: -user.remainingTime,
-        //       },
-        //     }
-        //   );
-        // }
       }
     }
 
