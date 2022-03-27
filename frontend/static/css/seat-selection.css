@@ -8,18 +8,6 @@
   background-color: #edf0eb;
 }
 
-/* .seat-container-border {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 91vw;
-  height: 82vh;
-  background-color: #8bc34a12;
-  border-radius: 12px;
-  perspective: 1000px;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 20px;
-} */
-
 .seat-container {
   display: flex;
   align-items: center;

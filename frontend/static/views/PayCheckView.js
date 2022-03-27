@@ -56,7 +56,9 @@ export default class extends AbstractView {
     if (String(min).length === 1) min = "0" + min;
 
     userName.innerText = localStorage.getItem("name");
-    payTime.innerText = `${now.getFullYear()}.${now.getMonth()}.${now.getDate()} ${hour}:${min}`;
+    payTime.innerText = `${now.getFullYear()}.${
+      now.getMonth() + 1
+    }.${now.getDate()} ${hour}:${min}`;
 
     console.log("im in paycheck view");
 
