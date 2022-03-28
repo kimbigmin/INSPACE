@@ -84,4 +84,10 @@ app.use(function (err, req, res, next) {
   res.json({ err: err.message });
 });
 
+const port = 5000;
+
+app.set("port", port);
+
+app.listen(port, () => console.log("Listening on", port));
+
 module.exports = app;
