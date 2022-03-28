@@ -78,3 +78,5 @@ document.addEventListener("DOMContentLoaded", () => {
   });
   router();
 });
+
+window.addEventListener("beforeunload", router);

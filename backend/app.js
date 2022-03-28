@@ -84,6 +84,10 @@ app.use(function (err, req, res, next) {
   res.json({ err: err.message });
 });
 
+app.get("*", function (request, response) {
+  response.sendFile(path.resolve(__dirname, "public", "index.html"));
+});
+
 const port = 5000;
 
 app.set("port", port);
