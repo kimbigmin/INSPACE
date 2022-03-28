@@ -142,6 +142,10 @@ export default class extends AbstractView {
     );
   }
 
+  reload() {
+    this.defaultFunc();
+  }
+
   defaultFunc() {
     this.nav.defaultFunc();
     const $checkIn = document.querySelector(".main-section__btn-check-in");
@@ -351,10 +355,11 @@ export default class extends AbstractView {
         .then((res) => {
           if (res.ok) {
             localStorage.setItem("checkIn", false);
-            location.reload();
           }
         })
-        .then((data) => {})
+        .then((data) => {
+          this.reload();
+        })
         .catch((err) => console.log(err));
     });
 
