@@ -343,15 +343,11 @@ export default class extends AbstractView {
     });
 
     $btnCheckOut.addEventListener("click", () => {
-      fetch(
-        `${BASE_URL}/users/checkOut`,
-        {
-          headers: {
-            Authorization: token,
-          },
-        }
-        // `http://localhost:5000/users/${id}/checkOut`
-      )
+      fetch(`${BASE_URL}/users/checkOut`, {
+        headers: {
+          Authorization: token,
+        },
+      })
         .then((res) => {
           if (res.ok) {
             localStorage.setItem("checkIn", false);

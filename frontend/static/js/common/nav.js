@@ -253,7 +253,7 @@ export default class {
         name: $name.value,
       };
       //서버 fetch
-      fetch("http://localhost:5000/info-change-name", {
+      fetch(`${BASE_URL}/info-change-name`, {
         method: "POST",
         body: JSON.stringify(userInfo),
         cache: "no-cache",
@@ -284,7 +284,7 @@ export default class {
         confirmpassword: $confirmpassword.value,
       };
 
-      fetch(`http://localhost:5000/info-change-password`, {
+      fetch(`${BASE_URL}/info-change-password`, {
         method: "POST",
         body: JSON.stringify(pwdInfo),
         cache: "no-cache",

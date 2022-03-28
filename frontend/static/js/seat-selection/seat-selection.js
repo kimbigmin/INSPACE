@@ -1,13 +1,14 @@
 import { createTable, createSmallTable } from "./Table.js";
 import { selectSeat, releaseSeat } from "./selectSeat.js";
 import toast from "../common/toast.js";
+import { BASE_URL } from "../common/api.js";
 
 let countSelected = 0;
 
 export function bringSeatInfo() {
   let countSeatsLeft = [4, 4, 4, 2, 2, 2, 2, 2, 2, 4, 4, 4];
 
-  fetch("http://localhost:5000/reservation/table", {
+  fetch(`${BASE_URL}/reservation/table`, {
     headers: {
       "Content-Type": "application/json",
       Authorization: localStorage.getItem("token"),
