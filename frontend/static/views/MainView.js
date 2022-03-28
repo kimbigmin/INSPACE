@@ -233,7 +233,6 @@ export default class extends AbstractView {
           Authorization: token,
         },
       })
-        //fetch("http://localhost:3000/checkOut")
         .then((res) => {
           // if (!res.ok) {
           //   location.href = "/";
