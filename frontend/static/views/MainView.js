@@ -1,6 +1,6 @@
 import AbstractView from "./AbstractView.js";
 import NavComponent from "../js/common/nav.js";
-// import { copy } from "../../../backend/app.js";
+import { BASE_URL } from "../js/common/api.js";
 export default class extends AbstractView {
   constructor(params) {
     super(params);
@@ -184,7 +184,7 @@ export default class extends AbstractView {
     if (checkIn == "true") {
       checkInDisplay(true);
 
-      fetch(`http://localhost:5000/users/checkIn`, {
+      fetch(`${BASE_URL}/users/checkIn`, {
         headers: {
           Authorization: token,
         },
@@ -228,7 +228,7 @@ export default class extends AbstractView {
     } else {
       checkInDisplay(false);
 
-      fetch(`http://localhost:5000/users/checkOut`, {
+      fetch(`${BASE_URL}/users/checkOut`, {
         headers: {
           Authorization: token,
         },
@@ -344,7 +344,7 @@ export default class extends AbstractView {
 
     $btnCheckOut.addEventListener("click", () => {
       fetch(
-        `http://localhost:5000/users/checkOut`,
+        `${BASE_URL}/users/checkOut`,
         {
           headers: {
             Authorization: token,

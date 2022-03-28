@@ -1,3 +1,5 @@
+import { BASE_URL } from "./api.js";
+
 export default class {
   constructor() {}
   getHtml() {
@@ -282,7 +284,7 @@ export default class {
         confirmpassword: $confirmpassword.value,
       };
 
-      fetch("http://localhost:5000/info-change-password", {
+      fetch(`http://localhost:5000/info-change-password`, {
         method: "POST",
         body: JSON.stringify(pwdInfo),
         cache: "no-cache",
@@ -308,13 +310,13 @@ export default class {
     });
 
     $logoutBtn.addEventListener("click", () => {
-      const checkOut = fetch(`http://localhost:5000/users/checkOut`, {
+      const checkOut = fetch(`${BASE_URL}/users/checkOut`, {
         headers: {
           Authorization: token,
         },
       });
 
-      const logOut = fetch(`http://localhost:5000/logout`, {
+      const logOut = fetch(`${BASE_URL}/logout`, {
         headers: {
           Authorization: token,
         },
@@ -358,7 +360,7 @@ export default class {
     };
 
     $historyBtn.addEventListener("click", () => {
-      fetch(`http://localhost:5000/users/addInfo`, {
+      fetch(`${BASE_URL}/users/addInfo`, {
         headers: {
           Authorization: token,
         },

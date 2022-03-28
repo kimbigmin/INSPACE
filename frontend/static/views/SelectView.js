@@ -4,13 +4,13 @@ import { initSeats } from "../js/seat-selection/seat-selection.js";
 import toast from "../js/common/toast.js";
 import {
   Price,
-  baseURL,
   setButtonConnection,
   composePaymentsInfo,
   checkSeat,
   extendTime,
   chooseSeat,
 } from "../js/handler/seatHandler.js";
+import { BASE_URL } from "../js/common/api.js";
 
 export default class extends AbstractView {
   constructor(params) {
@@ -131,7 +131,7 @@ export default class extends AbstractView {
           };
           if (isSelected) {
             fetch(
-              baseURL + `/reservation/table/position/payments/`,
+              BASE_URL + `/reservation/table/position/payments/`,
               seatData
             ).then((res) => {
               if (res.ok) {

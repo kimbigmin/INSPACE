@@ -1,5 +1,6 @@
 import toast from "../js/common/toast.js";
 import AbstractView from "./AbstractView.js";
+import { BASE_URL } from "../js/common/api.js";
 
 export default class extends AbstractView {
   constructor(params) {
@@ -66,8 +67,7 @@ export default class extends AbstractView {
         userId: email,
       };
 
-      const URL = "http://localhost:5000/reset-password";
-      fetch(URL, {
+      fetch(`${BASE_URL}/reset-password`, {
         method: "POST",
         body: JSON.stringify(user),
         cache: "no-cache",

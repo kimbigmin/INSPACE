@@ -1,6 +1,8 @@
 import AbstractView from "./AbstractView.js";
 import parseJwt from "../js/handler/tokenHandler.js";
 import toast from "../js/common/toast.js";
+import { BASE_URL } from "../js/common/api.js";
+
 export default class extends AbstractView {
   constructor(params) {
     super(params);
@@ -110,10 +112,9 @@ export default class extends AbstractView {
               userId: ID,
               password: PASSWORD, // 유저스키마에 패스워드 저장할 때 해시값 사용하면 해시값으로 변경후 password 전송
             };
-            const loginURL =
-              "http://ec2-13-124-187-18.ap-northeast-2.compute.amazonaws.com:5000/login";
+
             //서버 fetch
-            fetch(loginURL, {
+            fetch(`${BASE_URL}/login`, {
               method: "POST",
               body: JSON.stringify(loginUser),
               cache: "no-cache",

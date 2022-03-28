@@ -1,8 +1,6 @@
 import AbstractView from "./AbstractView.js";
 import NavComponent from "../js/common/nav.js";
 
-const baseURL = "http://localhost:5000";
-
 export default class extends AbstractView {
   constructor(params) {
     super(params);
@@ -59,8 +57,6 @@ export default class extends AbstractView {
     payTime.innerText = `${now.getFullYear()}.${
       now.getMonth() + 1
     }.${now.getDate()} ${hour}:${min}`;
-
-    console.log("im in paycheck view");
 
     const path = sessionStorage.getItem("path");
 

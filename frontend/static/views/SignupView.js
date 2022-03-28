@@ -1,5 +1,6 @@
 import AbstractView from "./AbstractView.js";
 import toast from "../js/common/toast.js";
+import { BASE_URL } from "../js/common/api.js";
 
 export default class extends AbstractView {
   constructor(params) {
@@ -120,9 +121,9 @@ export default class extends AbstractView {
           password: password,
           checkPassword: passwordconfirm,
         };
-        const signupURL = "http://localhost:5000/signup";
+
         // 서버 전달
-        fetch(signupURL, {
+        fetch(`${BASE_URL}/signup`, {
           method: "POST",
           body: JSON.stringify(createdUser),
           headers: {

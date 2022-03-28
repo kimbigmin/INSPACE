@@ -1,6 +1,5 @@
 import toast from "../common/toast.js";
-
-export const baseURL = "http://localhost:5000";
+import { BASE_URL } from "../common/api.js";
 
 export const Price = {
   oneday: {
@@ -97,7 +96,7 @@ export function extendTime(ticketInfoArr, totalPrice, payBtn) {
         Authorization: localStorage.getItem("token"),
       },
     };
-    fetch(baseURL + `/reservation/payments`, priceData)
+    fetch(BASE_URL + `/reservation/payments`, priceData)
       .then((res) => {
         console.log(res);
         if (res.ok) {
@@ -138,7 +137,7 @@ export function chooseSeat() {
         },
       };
 
-      fetch(baseURL + `/reservation/position/`, seatData)
+      fetch(BASE_URL + `/reservation/position/`, seatData)
         .then((res) => {
           console.log(res);
           if (res.ok) {

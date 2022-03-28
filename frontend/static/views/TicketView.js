@@ -1,6 +1,7 @@
 import AbstractView from "./AbstractView.js";
 import NavComponent from "../js/common/nav.js";
 import ticketHandler from "../js/handler/ticketHandler.js";
+import { BASE_URL } from "../js/common/api.js";
 
 export default class extends AbstractView {
   constructor(params) {
@@ -62,7 +63,7 @@ export default class extends AbstractView {
     const $onedayTickets = document.querySelectorAll(".oneday");
     const $chargeTickets = document.querySelectorAll(".charge");
 
-    fetch(`http://localhost:5000/reservation/ticket`, {
+    fetch(`${BASE_URL}/reservation/ticket`, {
       headers: {
         Authorization: localStorage.getItem("token"),
       },
