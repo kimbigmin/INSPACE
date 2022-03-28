@@ -18,7 +18,8 @@ function loginHandler() {
       password: PASSWORD, // 유저스키마에 패스워드 저장할 때 해시값 사용하면 해시값으로 변경후 password 전송
     };
 
-    const loginURL = "http://localhost:5000/login ";
+    const loginURL =
+      "http://ec2-13-124-187-18.ap-northeast-2.compute.amazonaws.com:5000/login ";
 
     fetch(loginURL, {
       method: "POST",
