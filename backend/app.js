@@ -29,9 +29,6 @@ mongoose.connection.on("connected", () => {
 });
 
 // view engine setup
-app.set("views", path.join(__dirname, "views"));
-
-app.set("view engine", "pug");
 
 app.use(logger("dev"));
 app.use(express.json());
@@ -58,10 +55,8 @@ app.use(passport.initialize());
 // app.use(passport.session());
 
 app.use("/", indexRouter);
-
 app.use("/auth", authRouter);
 // app.use('/google', GoogleRouter);
-
 // app.use("/payments", loginRequired, paymentsRouter);
 // app.use("/users", loginRequired, usersRouter);
 app.use("/reservation", getUserFromJWT, reservationRouter);
