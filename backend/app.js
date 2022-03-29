@@ -60,7 +60,7 @@ app.use(function (err, req, res, next) {
   res.json({ err: err.message });
 });
 
-const port = 5000;
+const port = 80;
 
 app.set("port", port);
 
