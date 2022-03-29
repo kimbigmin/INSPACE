@@ -1,11 +1,11 @@
-import MainView from "./static/views/MainView.js";
-import LoginView from "./static/views/LoginView.js";
-import SignupView from "./static/views/SignupView.js";
-import TicketView from "./static/views/TicketView.js";
-import FindView from "./static/views/FindView.js";
-import SelectView from "./static/views/SelectView.js";
-import PayCheckView from "./static/views/PayCheckView.js";
-import "./static/css/index.css";
+import MainView from "./src/views/MainView.js";
+import LoginView from "./src/views/LoginView.js";
+import SignupView from "./src/views/SignupView.js";
+import TicketView from "./src/views/TicketView.js";
+import FindView from "./src/views/FindView.js";
+import SelectView from "./src/views/SelectView.js";
+import PayCheckView from "./src/views/PayCheckView.js";
+import "./src/css/index.css";
 
 const pathToRegex = (path) =>
   new RegExp("^" + path.replace(/\//g, "\\/").replace(/:\w+/g, "(.+)") + "$");
