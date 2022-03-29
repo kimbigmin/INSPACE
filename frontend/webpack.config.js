@@ -9,7 +9,7 @@ module.exports = {
     path: path.resolve(__dirname, "dist"),
   },
   devServer: {
-    port: 3300,
+    port: 3400,
   },
   module: {
     rules: [

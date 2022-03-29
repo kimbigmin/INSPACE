@@ -184,6 +184,7 @@ export default class extends AbstractView {
     const token = localStorage.getItem("token");
 
     let elapsed = 0;
+    let timer;
 
     if (checkIn == "true") {
       checkInDisplay(true);
@@ -217,7 +218,7 @@ export default class extends AbstractView {
 
             const endTime = new Date(data.finishTime);
 
-            let setTimer = setInterval(function () {
+            timer = setInterval(function () {
               elapsed = endTime.getTime() - new Date().getTime();
 
               if (elapsed <= 0) {
@@ -238,14 +239,9 @@ export default class extends AbstractView {
         },
       })
         .then((res) => {
-          // if (!res.ok) {
-          //   location.href = "/";
-          // }
           return res.json();
         })
         .then((data) => {
-          //data = data[0];
-
           const info = {
             seat: " - ",
             check: " - ",
@@ -253,6 +249,7 @@ export default class extends AbstractView {
           };
 
           setInfo(info);
+          clearInterval(timer);
 
           if (data.remainingTime && data.remainingTime.hour >= 0) {
             elapsed =
@@ -319,31 +316,21 @@ export default class extends AbstractView {
     }
     //퇴실 메인
     selectSeatBtn.addEventListener("click", function () {
-      sessionStorage.clear();
-      sessionStorage.setItem("history", "before");
-      sessionStorage.setItem("path", "select");
+      sessionHandler("before", "select");
     });
     extendTimeBtnOut.addEventListener("click", function () {
-      sessionStorage.clear();
-      sessionStorage.setItem("history", "before");
-      sessionStorage.setItem("path", "extend");
+      sessionHandler("before", "extend");
     });
     selectAndExtendBtn.addEventListener("click", function () {
-      sessionStorage.clear();
-      sessionStorage.setItem("history", "before");
-      sessionStorage.setItem("path", "both");
+      sessionHandler("before", "both");
     });
 
     // 이용중 메인
     moveSeatBtn.addEventListener("click", function () {
-      sessionStorage.clear();
-      sessionStorage.setItem("history", "using");
-      sessionStorage.setItem("path", "move");
+      sessionHandler("using", "move");
     });
     extendTimeBtnIn.addEventListener("click", function () {
-      sessionStorage.clear();
-      sessionStorage.setItem("history", "using");
-      sessionStorage.setItem("path", "extend");
+      sessionHandler("using", "extend");
     });
 
     $btnCheckOut.addEventListener("click", () => {
@@ -358,10 +345,17 @@ export default class extends AbstractView {
           }
         })
         .then((data) => {
+          clearInterval(timer);
           this.reload();
         })
         .catch((err) => console.log(err));
     });
+
+    function sessionHandler(historyValue, pathValue) {
+      sessionStorage.clear();
+      sessionStorage.setItem("history", historyValue);
+      sessionStorage.setItem("path", pathValue);
+    }
 
     function drawTimer() {
       //timer process circle
@@ -377,10 +371,7 @@ export default class extends AbstractView {
       ctx.beginPath();
       ctx.strokeStyle = circleColor;
       ctx.lineWidth = lineWidth;
-      // ctx.shadowBlur = 5;
-      // ctx.shadowColor = "#9fa0a4";
-      // ctx.shadowOffsetX = 0;
-      // ctx.shadowOffsetY = 1;
+
       ctx.arc(
         canvasHeight / 2,
         canvasWidth / 2,
