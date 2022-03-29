@@ -55,6 +55,7 @@ const router = () => {
       match.route.path !== "/signup" &&
       match.route.path !== "/find")
   ) {
+    console.log(location.pathname);
     match = {
       route: routes[0],
       result: [location.pathname],
@@ -69,6 +70,16 @@ const router = () => {
 
 window.addEventListener("popstate", router);
 
+// document.addEventListener("DOMContentLoaded", () => {
+//   document.body.addEventListener("click", (e) => {
+//     if (e.target.parentElement.matches("[data-link]")) {
+//       e.preventDefault();
+//       navigateTo(e.target.parentElement.href);
+//     }
+//   });
+//   router();
+// });
+
 document.addEventListener("DOMContentLoaded", () => {
   document.body.addEventListener("click", (e) => {
     if (e.target.parentElement.matches("[data-link]")) {
@@ -79,4 +90,6 @@ document.addEventListener("DOMContentLoaded", () => {
   router();
 });
 
-window.addEventListener("beforeunload", router);
+window.addEventListener("beforeunload", (e) => {
+  console.log(e);
+});
