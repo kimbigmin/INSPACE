@@ -70,16 +70,6 @@ const router = () => {
 
 window.addEventListener("popstate", router);
 
-// document.addEventListener("DOMContentLoaded", () => {
-//   document.body.addEventListener("click", (e) => {
-//     if (e.target.parentElement.matches("[data-link]")) {
-//       e.preventDefault();
-//       navigateTo(e.target.parentElement.href);
-//     }
-//   });
-//   router();
-// });
-
 document.addEventListener("DOMContentLoaded", () => {
   document.body.addEventListener("click", (e) => {
     if (e.target.parentElement.matches("[data-link]")) {
@@ -88,8 +78,4 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
   router();
-});
-
-window.addEventListener("beforeunload", (e) => {
-  console.log(e);
 });

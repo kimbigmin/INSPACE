@@ -34,35 +34,10 @@ app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-
-app.use(express.static(path.join(__dirname, "public")));
-
-app.get("*", function (request, response) {
-  response.sendFile(path.resolve(__dirname, "public", "index.html"));
-});
-
-// app.use(
-//     session({
-//         secret: "Inspace",
-//         resave: false,
-//         saveUninitialized: true,
-//         store: MongoStore.create({
-//             mongoUrl: process.env.DB_URL,
-//         }),
-//     })
-// );
-
 app.use(passport.initialize());
-
-// app.use(getUserFromJWT);
-
-// app.use(passport.session());
 
 app.use("/", indexRouter);
 app.use("/auth", authRouter);
-// app.use('/google', GoogleRouter);
-// app.use("/payments", loginRequired, paymentsRouter);
-// app.use("/users", loginRequired, usersRouter);
 app.use("/reservation", getUserFromJWT, reservationRouter);
 app.use("/payments", getUserFromJWT, paymentsRouter);
 app.use("/users", getUserFromJWT, usersRouter);
@@ -82,6 +57,12 @@ app.use(function (err, req, res, next) {
 const port = 5000;
 
 app.set("port", port);
+
+app.use(express.static(path.join(__dirname, "public")));
+
+app.get("*", function (request, response) {
+  response.sendFile(path.resolve(__dirname, "public", "index.html"));
+});
 
 app.listen(port, () => console.log("Listening on", port));
 
