@@ -36,6 +36,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(passport.initialize());
 
+app.use(express.static(path.join(__dirname, "public")));
+
 app.use("/", indexRouter);
 app.use("/auth", authRouter);
 app.use("/reservation", getUserFromJWT, reservationRouter);
@@ -57,8 +59,6 @@ app.use(function (err, req, res, next) {
 const port = 5000;
 
 app.set("port", port);
-
-app.use(express.static(path.join(__dirname, "public")));
 
 app.get("*", function (request, response) {
   response.sendFile(path.resolve(__dirname, "public", "index.html"));
