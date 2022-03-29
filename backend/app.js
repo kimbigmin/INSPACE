@@ -44,6 +44,10 @@ app.use("/reservation", getUserFromJWT, reservationRouter);
 app.use("/payments", getUserFromJWT, paymentsRouter);
 app.use("/users", getUserFromJWT, usersRouter);
 
+app.get("*", function (request, response) {
+  response.sendFile(path.resolve(__dirname, "public", "index.html"));
+});
+
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
   next(createError(404));
@@ -59,10 +63,6 @@ app.use(function (err, req, res, next) {
 const port = 5000;
 
 app.set("port", port);
-
-app.get("*", function (request, response) {
-  response.sendFile(path.resolve(__dirname, "public", "index.html"));
-});
 
 app.listen(port, () => console.log("Listening on", port));
 
