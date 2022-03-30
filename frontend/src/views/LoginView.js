@@ -75,6 +75,7 @@ export default class extends AbstractView {
 
   defaultFunc() {
     const $loginBtn = document.getElementById("login-Btn");
+    const $loginForm = document.getElementById("login-form");
 
     if (localStorage.getItem("token")) {
       document.getElementById("login-Btn").parentElement.href = "/main";
@@ -95,7 +96,8 @@ export default class extends AbstractView {
       $loginBtn.addEventListener("click", () => {
         login();
       });
-      window.addEventListener("keyup", (e) => {
+      $loginForm.addEventListener("keyup", (e) => {
+        e.preventDefault();
         if (e.key === "Enter") {
           login();
         }
