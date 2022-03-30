@@ -67,11 +67,11 @@ export default class extends AbstractView {
           : "Successfully<br> Selected!";
       // paycheckTitle.style.fontSize = "1.5rem";
       totalPriceTitle.innerText = "현재 좌석:";
-      totalPrice.innerText = sessionStorage.getItem("lastSelected");
+      totalPrice.innerText = localStorage.getItem("lastSelected");
       ticketInfo.innerText = "-";
       paysubtitle.innerText = "좌석변경일시";
     } else {
-      if (localStorage.hasOwnProperty("ticket")) {
+      if (localStorage.getItem("ticket")) {
         totalPrice.innerText = JSON.parse(localStorage.getItem("ticket")).price;
         ticketInfo.innerText =
           JSON.parse(localStorage.getItem("ticket")).time + "시간권";

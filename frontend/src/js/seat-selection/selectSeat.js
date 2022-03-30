@@ -14,6 +14,7 @@ export const selectSeat = (e) => {
     display.innerText = mySeat;
 
     sessionStorage.setItem("lastSelected", mySeat);
+    localStorage.setItem("lastSelected", mySeat);
     sessionStorage.setItem("table", tableNumber);
   }
 };
