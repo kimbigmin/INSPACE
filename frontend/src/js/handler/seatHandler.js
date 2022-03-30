@@ -141,6 +141,7 @@ export function chooseSeat() {
         .then((res) => {
           console.log(res);
           if (res.ok) {
+            console.log("res OK!!");
             localStorage.setItem("checkIn", true);
             document.querySelector("#moveon").click();
             return;
@@ -148,7 +149,7 @@ export function chooseSeat() {
           return res.json();
         })
         .then((res) => {
-          console.log(res);
+          console.log(res + "다음res");
           let status = res.message;
           status += res.type === "noTime" ? "이용권을 먼저 구매해주세요." : "";
           toast(status);
