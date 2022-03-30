@@ -100,10 +100,13 @@ export function extendTime(ticketInfoArr, totalPrice, payBtn) {
       .then((res) => {
         console.log(res);
         if (res.ok) {
-          localStorage.setItem("ticket", {
-            ...ticket,
-            price: formattedPrice,
-          });
+          localStorage.setItem(
+            "ticket",
+            JSON.stringify({
+              ...ticket,
+              price: formattedPrice,
+            })
+          );
         }
       })
       .catch((err) => console.log("시간권 정보 전송 failed", err));

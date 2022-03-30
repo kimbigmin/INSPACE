@@ -46,6 +46,7 @@ export default class extends AbstractView {
     let userName = infoPayment[0].querySelector("a");
     let ticketInfo = infoPayment[1].querySelector("a");
     let paysubtitle = infoPayment[3].querySelector("p");
+    let payMethod = infoPayment[2].querySelector("a");
     let payTime = infoPayment[3].querySelector("a");
 
     let now = new Date();
@@ -69,6 +70,7 @@ export default class extends AbstractView {
       totalPriceTitle.innerText = "현재 좌석:";
       totalPrice.innerText = localStorage.getItem("lastSelected");
       ticketInfo.innerText = "-";
+      payMethod.innerText = "X(자리이동)";
       paysubtitle.innerText = "좌석변경일시";
     } else {
       if (localStorage.getItem("ticket")) {
