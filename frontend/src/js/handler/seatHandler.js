@@ -141,19 +141,17 @@ export function chooseSeat() {
         .then((res) => {
           console.log(res);
           if (res.ok) {
-            console.log("res OK!!");
-            return res.json();
+            localStorage.setItem("checkIn", true);
+            document.querySelector("#moveon").click();
+            return;
           }
-          throw new Error("요청중 에러가 발생했습니다!");
+          return res.json();
         })
         .then((res) => {
           console.log(res);
-          console.log("다음res 진입");
-          localStorage.setItem("checkIn", true);
           let status = res.message;
           status += res.type === "noTime" ? "이용권을 먼저 구매해주세요." : "";
           toast(status);
-          document.querySelector("#moveon").click();
         })
         .catch((err) => {
           console.log(err);
