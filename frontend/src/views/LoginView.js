@@ -50,9 +50,6 @@ export default class extends AbstractView {
               <a
                 ><input type="button" id="login-Btn" value="로그인"
               /></a>
-              <button id="google-login">
-                Google 계정으로 로그인
-              </button>
             </form>
             <div id="form-box">
               <ul>
@@ -96,7 +93,7 @@ export default class extends AbstractView {
       $loginBtn.addEventListener("click", () => {
         login();
       });
-      $loginForm.addEventListener("keyup", (e) => {
+      window.addEventListener("keyup", (e) => {
         e.preventDefault();
         if (e.key === "Enter") {
           login();
