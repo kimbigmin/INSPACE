@@ -85,7 +85,7 @@ export default class extends AbstractView {
     const totalPrice = document.querySelector(".total-price-box__price");
     const ticketInfoArr = document.querySelectorAll(".info-payment a");
 
-    localStorage.setItem("path", JSON.stringify(path));
+    localStorage.setItem("path", path);
 
     // 사용중 Main
     if (prevPath === "using") {
