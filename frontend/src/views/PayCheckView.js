@@ -58,7 +58,7 @@ export default class extends AbstractView {
       now.getMonth() + 1
     }.${now.getDate()} ${hour}:${min}`;
 
-    const path = sessionStorage.getItem("path");
+    const path = localStorage.getItem("path");
 
     if (path === "move" || path === "select") {
       paycheckTitle.innerHTML =

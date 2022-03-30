@@ -85,15 +85,23 @@ export default class extends AbstractView {
     const totalPrice = document.querySelector(".total-price-box__price");
     const ticketInfoArr = document.querySelectorAll(".info-payment a");
 
+    localStorage.setItem("path", JSON.stringify(path));
+
     // 사용중 Main
     if (prevPath === "using") {
-      if (path === "move") chooseSeat();
-      else if (path == "extend") extendTime(ticketInfoArr, totalPrice, payBtn);
+      if (path === "move") {
+        chooseSeat();
+      } else if (path == "extend") {
+        extendTime(ticketInfoArr, totalPrice, payBtn);
+      }
     }
     //퇴실메인
     else if (prevPath === "before") {
-      if (path === "select") chooseSeat();
-      else if (path === "extend") extendTime(ticketInfoArr, totalPrice, payBtn);
+      if (path === "select") {
+        chooseSeat();
+      } else if (path === "extend") {
+        extendTime(ticketInfoArr, totalPrice, payBtn);
+      }
       // 선택+연장
       else {
         setButtonConnection(prevBtn, "ticket");
@@ -142,7 +150,7 @@ export default class extends AbstractView {
                     price: formattedPrice,
                   })
                 );
-                // document.querySelector("#moveon").click();
+                document.querySelector("#moveon").click();
                 localStorage.setItem("checkIn", true);
               } else {
                 toast("이미 이용중인 좌석입니다");
