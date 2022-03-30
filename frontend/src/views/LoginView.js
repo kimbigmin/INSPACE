@@ -74,6 +74,8 @@ export default class extends AbstractView {
   }
 
   defaultFunc() {
+    const $loginBtn = document.getElementById("login-Btn");
+
     if (localStorage.getItem("token")) {
       document.getElementById("login-Btn").parentElement.href = "/main";
       document.getElementById("login-Btn").click();
@@ -89,7 +91,6 @@ export default class extends AbstractView {
       }, 500);
 
       // 로그인 핸들러
-      const $loginBtn = document.getElementById("login-Btn");
 
       $loginBtn.addEventListener("click", () => {
         login();
