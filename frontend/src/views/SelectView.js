@@ -120,13 +120,13 @@ export default class extends AbstractView {
 
         payBtn.addEventListener("click", (e) => {
           setButtonConnection(payBtn, "select");
-          const selectedSeat = sessionStorage.getItem("lastSelected");
+          const selectedSeat = localStorage.getItem("lastSelected");
           let isSelected = checkSeat(selectedSeat, payBtn);
           const seatTicketObj = {
             category: auth,
             duration: time,
             price: Price[auth][time],
-            table: sessionStorage.getItem("table"),
+            table: localStorage.getItem("table"),
             position: Number(selectedSeat.replace(/[^0-9]/g, "")),
           };
           let seatData = {
