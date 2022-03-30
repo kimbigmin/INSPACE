@@ -73,15 +73,13 @@ export default class extends AbstractView {
       payMethod.innerText = "X(자리이동)";
       paysubtitle.innerText = "좌석변경일시";
     } else {
-      if (localStorage.getItem("ticket")) {
-        totalPrice.innerText = JSON.parse(localStorage.getItem("ticket")).price;
-        ticketInfo.innerText =
-          JSON.parse(localStorage.getItem("ticket")).time + "시간권";
-      }
+      totalPrice.innerText = JSON.parse(localStorage.getItem("ticket")).price;
+      ticketInfo.innerText =
+        JSON.parse(localStorage.getItem("ticket")).time + "시간권";
     }
 
-    localStorage.removeItem("ticket");
-    sessionStorage.clear();
+    // localStorage.removeItem("ticket");
+    // sessionStorage.clear();
 
     history.pushState(null, null, location.href);
     window.onpopstate = function () {
