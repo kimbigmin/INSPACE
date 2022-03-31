@@ -5,7 +5,7 @@ import { BASE_URL } from "../js/common/api.js";
 export default class extends AbstractView {
   constructor(params) {
     super(params);
-    this.setTitle("InSpace");
+    this.setTitle("INSPACE");
   }
   getHtml() {
     return `

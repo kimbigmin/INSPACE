@@ -15,7 +15,7 @@ import { BASE_URL } from "../js/common/api.js";
 export default class extends AbstractView {
   constructor(params) {
     super(params);
-    this.setTitle("좌석 선택");
+    this.setTitle("INSPACE");
     this.nav = new NavComponent();
   }
   getHtml() {

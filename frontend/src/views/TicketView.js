@@ -6,7 +6,7 @@ import { BASE_URL } from "../js/common/api.js";
 export default class extends AbstractView {
   constructor(params) {
     super(params);
-    this.setTitle("InSpace");
+    this.setTitle("INSPACE");
     this.obj = {};
     this.nav = new NavComponent();
   }
@@ -25,7 +25,6 @@ export default class extends AbstractView {
               <li class="oneday ticket" data-name="1" data-price="2,000">1시간권 : 2,000원</li>
               <li class="oneday ticket" data-name="4" data-price="6,000">4시간권 : 6,000원</li>
               <li class="oneday ticket" data-name="12" data-price="15,000">12시간권 : 15,000원</li>
-              <li class="oneday ticket" data-name="24" data-price="25,000">24시간권 : 25,000원</li>
             </ul>
           </article>
           <div class="divider"></div>
@@ -34,6 +33,7 @@ export default class extends AbstractView {
             <p>시간 내에 사용 가능하며 퇴실시 유지됩니다.</p>
             <ul>
               <li>
+                <li class="charge ticket" data-name="24" data-price="25,000">24시간권 : 25,000원</li>
                 <li class="charge ticket" data-name="50" data-price="50,000">50시간권 : 50,000원</li>
                 <li class="charge ticket" data-name="100" data-price="100,000">100시간권 : 100,000원</li>
               </li>

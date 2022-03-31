@@ -4,7 +4,7 @@ import NavComponent from "../js/common/nav.js";
 export default class extends AbstractView {
   constructor(params) {
     super(params);
-    this.setTitle = "InSpace";
+    this.setTitle("INSPACE");
     this.nav = new NavComponent();
   }
 
